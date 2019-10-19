@@ -46,8 +46,23 @@ class CategoryController extends Controller
         return redirect(route('category.create'));
     }
 
-    public function update(){
-        // dd($id);
+    public function update($id){
+        $data = request()->validate([
+            "name" => ["required","min:5", 'unique:categories'],
+            "image" => ['mimes:jpeg,jpg,png','nullable','image']
+        ]);
+
+        if (request('image')) {
+            $imagePath = request('image')->store('profile', 'public');
+        }
+
+        $category = \App\Category::findOrFail($id);
+
+        $category->update([
+            'name' => $data['name'],
+            'image' => $imagePath ?? $category->image,
+        ]);
+        return redirect(route('category'));
     }
 
     public function show($id){

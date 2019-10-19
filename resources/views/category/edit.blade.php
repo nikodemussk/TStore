@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<form method="POST" action="{{ route('category.update',$category->id) }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('category.update',$category->id) }}" enctype="multipart/form-data">
     @csrf
+    @method('PATCH')
 
 <div class="form-group row">
     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
