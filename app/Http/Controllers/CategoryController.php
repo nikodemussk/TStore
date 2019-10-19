@@ -47,7 +47,7 @@ class CategoryController extends Controller
     }
 
     public function update(){
-
+        // dd($id);
     }
 
     public function show($id){
@@ -59,5 +59,9 @@ class CategoryController extends Controller
         return view('category.show',compact('clothes'));
     }
 
+    public function edit($id){
+        $category = \App\Category::findOrFail($id);
 
+        return view('category.edit',compact('category'));
+    }
 }
