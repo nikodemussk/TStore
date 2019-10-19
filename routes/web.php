@@ -28,6 +28,7 @@ Route::get('/category/{id}', 'CategoryController@show')->name('category.show');
 
 Route::get('/clothes/create', 'ClothesController@create')->name('clothes.create');
 Route::post('/clothes', 'ClothesController@store')->name('clothes.store');
+Route::patch('/clothes/{id}', 'ClothesController@update')->name('clothes.update');
 Route::get('/clothes/{id}/edit', 'ClothesController@edit')->name('clothes.edit');
 Route::get('/clothes/{id}', 'ClothesController@show')->name('clothes.show');
 
