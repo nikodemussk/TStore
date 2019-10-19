@@ -21,6 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/category', 'CategoryController@index')->name('category');
 Route::get('/category/create', 'CategoryController@create')->name('category.create');
-Route::get('/category/{id}', 'CategoryController@show')->name('category.show');
 Route::post('/category', 'CategoryController@store')->name('category.store');
 Route::get('/category/edit', 'CategoryController@edit')->name('category.edit');
+Route::get('/category/{id}', 'CategoryController@show')->name('category.show');
+
+Route::get('/clothes/create', 'ClothesController@create')->name('clothes.create');
+Route::post('/clothes', 'ClothesController@store')->name('clothes.store');
+Route::get('/clothes/{id}', 'ClothesController@show')->name('clothes.show');
+

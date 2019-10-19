@@ -55,6 +55,9 @@ class CategoryController extends Controller
         // dd($category);
         $clothes = $category->clothes()->get();
         // dd($clothes);
+
         return view('category.show',compact('clothes'));
     }
+
+
 }

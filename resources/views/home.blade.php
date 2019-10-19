@@ -25,8 +25,10 @@
 <p>Our Clothes Categories:</p>
 
 @foreach ($categories as $category)
+<a href="{{ route('category.show',$category->id) }}">
 <p>{{ $category->name }}</p>
 <img src="/storage/{{ $category->image }}">
+</a>
 @endforeach
 
 

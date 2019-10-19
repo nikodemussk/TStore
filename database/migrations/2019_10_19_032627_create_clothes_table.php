@@ -19,8 +19,9 @@ class CreateClothesTable extends Migration
             $table->bigInteger('category_id');
             $table->string('name');
             $table->string('image');
+            $table->string('description');
             $table->bigInteger('price');
-            $table->bigInteger('store');
+            $table->bigInteger('stock');
 
             $table->index('category_id');
         });
