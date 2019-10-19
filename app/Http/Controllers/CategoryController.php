@@ -35,18 +35,26 @@ class CategoryController extends Controller
         // $extension = $image->getClientOriginalExtension();
         $imagePath = request('image')->store('category', 'public');
         // dd($imagePath);
-        
+
         // Storage::disk('public')->put($image->getFilename().'.'.$extension,  File::get($image));
         }
         \App\Category::create([
             'name' => $data['name'],
             'image' => $imagePath ?? ''
         ]);
-        
-        return redirect(route('category-create'));
+
+        return redirect(route('category.create'));
     }
 
     public function update(){
 
+    }
+
+    public function show($id){
+        $category = \App\Category::findOrFail($id);
+        // dd($category);
+        $clothes = $category->clothes()->get();
+        // dd($clothes);
+        return view('category.show',compact('clothes'));
     }
 }

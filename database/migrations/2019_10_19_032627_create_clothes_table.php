@@ -18,8 +18,11 @@ class CreateClothesTable extends Migration
             $table->timestamps();
             $table->bigInteger('category_id');
             $table->string('name');
+            $table->string('image');
             $table->bigInteger('price');
             $table->bigInteger('store');
+
+            $table->index('category_id');
         });
     }
 
