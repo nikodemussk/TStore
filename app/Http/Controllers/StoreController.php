@@ -15,6 +15,7 @@ class StoreController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -25,6 +26,7 @@ class StoreController extends Controller
     public function create()
     {
         //
+        return view("store.create");
     }
 
     /**
@@ -36,6 +38,23 @@ class StoreController extends Controller
     public function store(Request $request)
     {
         //
+
+        $data = $request->validate([
+            "name" => ["required", "min:5"],
+            "description" => ["required", "min:20"],
+            "address" => ["required", "min:10"],
+            "image" => ["required", 'mimes:jpeg,jpg,png', 'image'],
+        ]);
+        // dd($data);
+
+        if (request('image')) {
+            $imagePath = request('image')->store('store', 'public');
+        }
+        // dd();
+
+        \App\Store::create(array_merge($data,["image" => $imagePath]));
+
+        return redirect(route('category.create'));
     }
 
     /**

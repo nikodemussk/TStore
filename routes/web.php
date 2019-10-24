@@ -32,3 +32,6 @@ Route::patch('/clothes/{id}', 'ClothesController@update')->name('clothes.update'
 Route::get('/clothes/{id}/edit', 'ClothesController@edit')->name('clothes.edit');
 Route::get('/clothes/{id}', 'ClothesController@show')->name('clothes.show');
 
+Route::get('/store', 'StoreController@index')->name('store.index');
+Route::get('/store/create', 'StoreController@create')->name('store.create');
+Route::post('/store', 'StoreController@store')->name('store.store');

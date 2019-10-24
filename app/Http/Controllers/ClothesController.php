@@ -50,7 +50,7 @@ class ClothesController extends Controller
         ]);
 
 
-        $imagePath = request('image')->store('category', 'public');
+        $imagePath = request('image')->store('clothes', 'public');
         // dd($data);
 
         \App\Clothes::create([
