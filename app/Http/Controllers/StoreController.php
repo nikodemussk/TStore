@@ -54,7 +54,7 @@ class StoreController extends Controller
 
         \App\Store::create(array_merge($data,["image" => $imagePath]));
 
-        return redirect(route('category.create'));
+        return redirect(route('store.create'));
     }
 
     /**
@@ -74,9 +74,12 @@ class StoreController extends Controller
      * @param  \App\Store  $store
      * @return \Illuminate\Http\Response
      */
-    public function edit(Store $store)
+    public function edit(Store $store, $id)
     {
         //
+        $store = $store->findOrFail($id);
+        // dd($store);
+        return view("store.edit", ["store" => $store] );
     }
 
     /**
@@ -86,9 +89,22 @@ class StoreController extends Controller
      * @param  \App\Store  $store
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, Store $store, $id)
     {
         //
+        $store = $store->findOrFail($id);
+        $data = $request->validate([
+            "name" => ["required", "min:5"],
+            "description" => ["required", "min:20"],
+            "address" => ["required", "min:10"],
+            "image" => ['mimes:jpeg,jpg,png', 'image'],
+        ]);
+
+        if (request('image')) {
+            $imagePath = request('image')->store('store', 'public');
+        }
+
+        $store->update(array_merge($data,["image" => $imagePath ?? $store->image]));
     }
 
     /**
