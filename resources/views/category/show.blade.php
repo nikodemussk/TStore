@@ -6,12 +6,14 @@
 
 
     @foreach ($clothes as $cloth)
+    @if ($cloth->stock > 0)
     <a href="{{ route('clothes.show',$cloth->id) }}">
         <p>{{ $cloth->name }}</p>
         <img src="/storage/{{ $cloth->image }}">
         <p>{{ $cloth->price }}</p>
         <p>{{ $cloth->stock }}</p>
     </a>
+    @endif
     @endforeach
 
 </div>
