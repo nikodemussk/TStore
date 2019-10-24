@@ -79,4 +79,9 @@ class CategoryController extends Controller
 
         return view('category.edit',compact('category'));
     }
+
+    public function destory($id){
+        \App\Category::destroy($id);
+        return redirect(route('category'));
+    }
 }

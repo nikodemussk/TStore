@@ -23,6 +23,7 @@ Route::get('/category', 'CategoryController@index')->name('category');
 Route::get('/category/create', 'CategoryController@create')->name('category.create');
 Route::post('/category', 'CategoryController@store')->name('category.store');
 Route::get('/category/{id}/edit', 'CategoryController@edit')->name('category.edit');
+Route::delete('/category/{id}', 'CategoryController@destroy')->name('category.destroy');
 Route::patch('/category/{id}', 'CategoryController@update')->name('category.update');
 Route::get('/category/{id}', 'CategoryController@show')->name('category.show');
 
@@ -31,6 +32,7 @@ Route::post('/clothes', 'ClothesController@store')->name('clothes.store');
 Route::patch('/clothes/{id}', 'ClothesController@update')->name('clothes.update');
 Route::get('/clothes/{id}/edit', 'ClothesController@edit')->name('clothes.edit');
 Route::get('/clothes/{id}', 'ClothesController@show')->name('clothes.show');
+// Route::delete('/clothes/{id}', 'ClothesController@destroy')->name('clothes.destroy');
 
 Route::get('/store', 'StoreController@index')->name('store.index');
 Route::get('/store/create', 'StoreController@create')->name('store.create');
