@@ -113,13 +113,16 @@ class StoreController extends Controller
      * @param  \App\Store  $store
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy(Store $store,$id)
     {
         //
+        $store->destroy($id);
+        return redirect(route("store.manage"));
     }
 
     public function manage(){
         $clothes = auth()->user()->store()->first()->clothes()->get();
-        return view("store.manage",compact("clothes"));
+        $store = auth()->user()->store()->first();
+        return view("store.manage",compact("clothes"),compact("store"));
     }
 }

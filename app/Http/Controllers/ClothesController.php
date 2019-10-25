@@ -72,8 +72,9 @@ class ClothesController extends Controller
         return view('clothes.show',compact('clothes'));
     }
 
-    public function destory($id){
-        \App\Clothes::findOrFail($id)->destory();
-        return redirect(route('category.index'));
+    public function destroy($id){
+        \App\Clothes::findOrFail($id)->delete();
+        // \App\Clothes::destroy($id);
+        return redirect(route('home'));
     }
 }
