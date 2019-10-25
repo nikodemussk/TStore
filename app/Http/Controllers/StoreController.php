@@ -52,7 +52,7 @@ class StoreController extends Controller
         }
         // dd();
 
-        \App\Store::create(array_merge($data,["image" => $imagePath]));
+        \App\Store::create(array_merge($data,["image" => $imagePath],["user_id" => auth()->user()->id]));
 
         return redirect(route('store.create'));
     }
@@ -119,6 +119,7 @@ class StoreController extends Controller
     }
 
     public function manage(){
-        auth()->user()->store();
+        $clothes = auth()->user()->store()->first()->clothes()->get();
+        return view("store.manage",compact("clothes"));
     }
 }

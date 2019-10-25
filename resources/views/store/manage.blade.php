@@ -9,6 +9,7 @@
         <img src="/storage/{{ $cloth->image }}">
         <p>{{ $cloth->price }}</p>
         <p>{{ $cloth->stock }}</p>
+        <p>Store Name: {{ $cloth->store->name }}</p>
     </a>
     @endforeach
 

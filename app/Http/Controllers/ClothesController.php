@@ -60,10 +60,10 @@ class ClothesController extends Controller
             "stock" => $data['stock'],
             "description" => $data['description'],
             "image" => $imagePath,
-            "store_id" => auth()->user()->store()->id,
+            "store_id" => auth()->user()->store()->first()->id,
         ]);
 
-        return redirect(route('category.create'));
+        return redirect(route('clothes.create'));
     }
 
 

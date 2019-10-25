@@ -35,6 +35,7 @@ Route::get('/clothes/{id}', 'ClothesController@show')->name('clothes.show');
 // Route::delete('/clothes/{id}', 'ClothesController@destroy')->name('clothes.destroy');
 
 Route::get('/store', 'StoreController@index')->name('store.index');
+Route::get('/store/manage', 'StoreController@manage')->name('store.index');
 Route::get('/store/create', 'StoreController@create')->name('store.create');
 Route::post('/store', 'StoreController@store')->name('store.store');
 Route::get('/store/{id}/edit', 'StoreController@edit')->name('store.edit');
