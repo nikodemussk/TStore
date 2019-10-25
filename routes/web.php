@@ -41,3 +41,4 @@ Route::get('/store/{id}/edit', 'StoreController@edit')->name('store.edit');
 Route::patch('/store/{id}', 'StoreController@update')->name('store.update');
 
 Route::get('/cart', 'CartController@index')->name('cart');
+Route::post('/cart/{id}', 'CartController@store')->name('cart.store');

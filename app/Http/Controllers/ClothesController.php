@@ -67,8 +67,8 @@ class ClothesController extends Controller
 
 
     public function show($id){
-        $cloth = \App\Clothes::findOrFail($id);
-        return view('clothes.show',compact('cloth'));
+        $clothes = \App\Clothes::findOrFail($id);
+        return view('clothes.show',compact('clothes'));
     }
 
     public function destory($id){

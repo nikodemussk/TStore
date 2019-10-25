@@ -3,16 +3,17 @@
 @section('content')
 <div class="container">
 
-        <p>{{ $cloth->name }}</p>
-        <p>{{ $cloth->category }}</p>
-        <img src="/storage/{{ $cloth->image }}">
-        <p>{{ $cloth->price }}</p>
-        <p>{{ $cloth->stock }}</p>
-        <p>{{ $cloth->description }}</p>
+        <p>{{ $clothes->name }}</p>
+        <p>{{ $clothes->category }}</p>
+        <img src="/storage/{{ $clothes->image }}">
+        <p>{{ $clothes->price }}</p>
+        <p>{{ $clothes->stock }}</p>
+        <p>{{ $clothes->description }}</p>
 
 </div>
 
-<form method="post" action="{{ route('clothes.update',$clothes->id) }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('cart.store', $clothes->id) }}" enctype="multipart/form-data">
+    @csrf
     <div class="col-md-6">
         <input id="quantity" type="number" class="form-control @error('quantity') is-invalid @enderror" name="quantity" value="{{ $clothes->quantity }}" required autocomplete="quantity" autofocus>
 
@@ -21,6 +22,14 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
+    </div>
+
+    <div class="form-group row mb-0">
+        <div class="col-md-6 offset-md-4">
+            <button type="submit" class="btn btn-primary">
+                {{ __('Add to Cart') }}
+            </button>
+        </div>
     </div>
 </form>
 @endsection

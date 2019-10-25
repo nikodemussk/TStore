@@ -18,12 +18,16 @@ class CartController extends Controller
             return view('cart.index',['carts' => $arrayCart]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request, $id){
+
+        $qty = $request->validate([
+            "quantity" => "min:1"
+        ]);
 
         $newData = \App\Cart::create([
-            "clothes_id" => "1",
+            "clothes_id" => $id,
             "user_id" => auth()->user()->id,
-            "quantity"  => "20"
+            "quantity" => $qty["quantity"]
          ]);
          $newData->clothes()->attach($newData->clothes_id);
     }
