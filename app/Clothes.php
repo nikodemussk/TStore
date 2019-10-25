@@ -8,4 +8,9 @@ class Clothes extends Model
 {
     //
     protected $guarded = [];
+
+    public function cart()
+    {
+        return $this->belongsToMany('App\Cart','cart_clothes');
+    }
 }

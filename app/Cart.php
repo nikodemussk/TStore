@@ -15,7 +15,7 @@ class Cart extends Model
 
     public function clothes()
     {
-        return $this->belongsToMany('App\Clothes');
+        return $this->belongsToMany('App\Clothes','cart_clothes');
     }
 
     // public function clothes()
