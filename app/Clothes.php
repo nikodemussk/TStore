@@ -13,4 +13,9 @@ class Clothes extends Model
     {
         return $this->belongsToMany('App\Cart','cart_clothes');
     }
+
+    public function store()
+    {
+        return $this->belongsTo('App\Store');
+    }
 }

@@ -117,4 +117,8 @@ class StoreController extends Controller
     {
         //
     }
+
+    public function manage(){
+        auth()->user()->store();
+    }
 }
