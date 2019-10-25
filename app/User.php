@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function cart(){
         return $this->hasOne("App\Cart");
     }
+
+    public function store(){
+        return $this->hasOne("App\Store");
+    }
 }

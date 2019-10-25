@@ -20,6 +20,10 @@ class CreateStoresTable extends Migration
             $table->string("image");
             $table->string("address");
             $table->string("description");
+            $table->unsignedBigInteger("user_id");
+
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
