@@ -43,7 +43,7 @@ class CategoryController extends Controller
             'image' => $imagePath ?? ''
         ]);
 
-        return redirect(route('category.create'));
+        return redirect(route('category'));
     }
 
     public function update($id){
@@ -80,8 +80,8 @@ class CategoryController extends Controller
         return view('category.edit',compact('category'));
     }
 
-    public function destory($id){
-        \App\Category::destroy($id);
+    public function destroy($id){
+        \App\Category::findOrFail($id)->delete();
         return redirect(route('category'));
     }
 }
