@@ -9,6 +9,7 @@
         <p>{{ $clothes->price }}</p>
         <p>{{ $clothes->stock }}</p>
         <p>{{ $clothes->description }}</p>
+        {{-- <p>{{ $clothes->store->name }}</p> --}}
 
 </div>
 
