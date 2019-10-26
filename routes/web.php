@@ -45,3 +45,4 @@ Route::delete('/store/{id}', 'StoreController@destroy')->name('store.destroy');
 
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::post('/cart/{id}', 'CartController@store')->name('cart.store');
+Route::patch('/cart/{id}', 'CartController@update')->name('cart.update');
