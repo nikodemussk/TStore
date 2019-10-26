@@ -69,6 +69,7 @@ class CategoryController extends Controller
         $category = \App\Category::findOrFail($id);
         // dd($category);
         $clothes = $category->clothes()->get();
+        // dd($clothes[2]->store()->first()->name);
         // dd($clothes);
 
         return view('category.show',compact('clothes'));

@@ -12,7 +12,7 @@
         {{-- <p>{{ $clothes->store->name }}</p> --}}
 
 </div>
-
+@if (auth()->user())
 <form method="post" action="{{ route('cart.store', $clothes->id) }}" enctype="multipart/form-data">
     @csrf
     <div class="col-md-6">
@@ -33,4 +33,6 @@
         </div>
     </div>
 </form>
+@endif
+
 @endsection

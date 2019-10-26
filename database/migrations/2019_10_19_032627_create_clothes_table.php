@@ -25,7 +25,7 @@ class CreateClothesTable extends Migration
             $table->unsignedBigInteger('store_id');
 
             // $table->foreign('store_id')->references('id')->on('stores');
-            $table->index('store_id');
+            $table->index('store_id')->onDelete('cascade');
             $table->index('category_id');
         });
     }

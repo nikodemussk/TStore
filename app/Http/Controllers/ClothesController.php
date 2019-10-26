@@ -33,10 +33,12 @@ class ClothesController extends Controller
     }
 
     public function create(){
-
-        $categories = \App\Category::all();
-        // dd($categories);
-        return view('clothes.create', compact('categories'));
+        if(auth()->user()->store()->first() == null){
+            return redirect(route("store.create"));
+        } else {
+            $categories = \App\Category::all();
+            return view('home', compact('categories'));
+        }
     }
 
     public function store(){
