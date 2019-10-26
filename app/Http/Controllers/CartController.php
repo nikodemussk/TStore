@@ -31,7 +31,7 @@ class CartController extends Controller
             "quantity" => $qty["quantity"]
          ]);
          $newData->clothes()->attach($newData->clothes_id);
-         return redirect(route("cart.index"));
+         return redirect(route("cart"));
     }
 
     public function update($id){
@@ -46,6 +46,11 @@ class CartController extends Controller
             "user_id" => auth()->user()->id,
             "quantity" => $qty["quantity"]
         ]);
+        return redirect(route("cart"));
+    }
+
+    public function destroy($id){
+        \App\Cart::findOrFail($id)->delete();
         return redirect(route("cart"));
     }
 }
