@@ -26,7 +26,11 @@ class StoreController extends Controller
     public function create()
     {
         //
-        return view("store.create");
+        if(auth()->user()->store()->first() != null){
+            return redirect(route("store.manage"));
+        } else {
+            return view("store.create");
+        }
     }
 
     /**
@@ -54,7 +58,7 @@ class StoreController extends Controller
 
         \App\Store::create(array_merge($data,["image" => $imagePath],["user_id" => auth()->user()->id]));
 
-        return redirect(route('store.create'));
+        return redirect(route('store.manage'));
     }
 
     /**
@@ -77,9 +81,12 @@ class StoreController extends Controller
     public function edit(Store $store, $id)
     {
         //
-        $store = $store->findOrFail($id);
-        // dd($store);
-        return view("store.edit", ["store" => $store] );
+        if(auth()->user()->store()->first()->user_id == auth()->user()->id){
+            $store = $store->findOrFail($id);
+            return view("store.edit", ["store" => $store] );
+        } else {
+            return redirect(route("store.create"));
+        }
     }
 
     /**
@@ -121,8 +128,12 @@ class StoreController extends Controller
     }
 
     public function manage(){
-        $clothes = auth()->user()->store()->first()->clothes()->get();
-        $store = auth()->user()->store()->first();
-        return view("store.manage",compact("clothes"),compact("store"));
+        if(auth()->user()->store()->first() == null){
+            return redirect(route("store.create"));
+        } else {
+            $clothes = auth()->user()->store()->first()->clothes()->get();
+            $store = auth()->user()->store()->first();
+            return view("store.manage",compact("clothes"),compact("store"));
+        }
     }
 }
