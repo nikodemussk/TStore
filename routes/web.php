@@ -28,6 +28,7 @@ Route::patch('/category/{id}', 'CategoryController@update')->name('category.upda
 Route::get('/category/{id}', 'CategoryController@show')->name('category.show');
 
 Route::get('/clothes/create', 'ClothesController@create')->name('clothes.create');
+Route::get('/clothes/search', 'ClothesController@search')->name('clothes.search');
 Route::post('/clothes', 'ClothesController@store')->name('clothes.store');
 Route::delete('/clothes/{id}', 'ClothesController@destroy')->name('clothes.destroy');
 Route::patch('/clothes/{id}', 'ClothesController@update')->name('clothes.update');

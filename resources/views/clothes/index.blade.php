@@ -3,11 +3,6 @@
 @section('content')
 <div class="container">
 
-    <form action="{{route('clothes.search')}}" method="GET">
-        <input type="text" name="searchData">
-        <input type="submit">
-    </form>
-
     @foreach ($clothes as $cloth)
     @if ($cloth->stock > 0)
     <a href="{{ route('clothes.show',$cloth->id) }}">
@@ -20,5 +15,8 @@
     @endif
     @endforeach
 
+    <div>
+        {{$clothes->appends(request()->input)->links()}}
+    </div>
 </div>
 @endsection

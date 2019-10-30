@@ -79,4 +79,9 @@ class ClothesController extends Controller
         // \App\Clothes::destroy($id);
         return redirect(route('home'));
     }
+
+    public function search(Request $request){
+        $clothes = \App\Clothes::where('name', 'LIKE',"%$request->searchData%")->paginate(5);
+        return view('clothes.index',compact('clothes'));
+    }
 }
