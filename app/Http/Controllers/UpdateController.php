@@ -24,10 +24,10 @@ class UpdateController extends Controller
     {
 
         $data = request()->validate([
-            'name' => ['required', 'string', 'max:255', 'regex:/[a-z]+$/i'],
+            'name' => ['required', 'string', 'max:255', 'regex:/[a-z]+$/i','min:5'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($id)],
-            'password' => ['required', 'string', 'min:5', 'confirmed','alpha_num'],
-            'old-password' => ['required', new MatchOldPassword],
+            'password' => ['string', 'min:5', 'confirmed','alpha_num'],
+            'old-password' => ['required','min:10','alpha_num', new MatchOldPassword],
             'gender' => ['required'],
             'address' => ['required','min:10'],
         ]);
