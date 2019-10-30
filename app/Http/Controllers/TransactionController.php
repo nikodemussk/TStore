@@ -9,7 +9,8 @@ class TransactionController extends Controller
     //
     public function index(){
         $data = \App\Transaction::all();
-        dd($data);
+        // dd($data);
+        return view('transaction.index',['transactions' => $data]);
     }
 
     public static function store(\App\Cart $cart){
