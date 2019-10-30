@@ -51,3 +51,6 @@ Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 
 Route::get('/transaction', 'TransactionController@index')->name('transaction.index');
 Route::post('/transaction', 'TransactionController@store')->name('transaction.store');
+
+Route::get('/user/{id}/edit', 'UpdateController@edit')->name('user.edit');
+Route::patch('/user/{id}', 'UpdateController@update')->name('user.update');
