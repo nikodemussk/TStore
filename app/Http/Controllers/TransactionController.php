@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class TransactionController extends Controller
 {
     //
+    public function __construct(){
+        $this->middleware('superadmin');
+    }
+
     public function index(){
         $data = \App\Transaction::all();
         // dd($data);

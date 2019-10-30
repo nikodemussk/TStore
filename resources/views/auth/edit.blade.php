@@ -113,6 +113,12 @@
                             </div>
                         </div>
 
+                        <select name="role" id="role" class="form-control @error('role') is-invalid @enderror" name="role" required autocomplete="role" autofocus>
+                            <option value="member">Member</option>
+                            <option value="admin">Admin</option>
+                            <option value="superadmin">Super Admin</option>
+                        </select>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
