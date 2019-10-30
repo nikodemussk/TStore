@@ -51,7 +51,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255', 'regex:/[a-z]+$/i'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:5', 'confirmed','alpha_num'],
+            'password' => ['required', 'string', 'min:5', 'confirmed','alpha_num','regex:/^[a-zA-Z0-9]*([a-zA-Z][0-9]|[0-9][a-zA-Z])[a-zA-Z0-9]*$/'],
             'gender' => ['required'],
             'address' => ['required','min:10'],
         ]);
@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'gender' => $data['gender'],
             'password' => Hash::make($data['password']),
-            'roles' => "user"
+            'role' => "member",
         ]);
     }
 }
