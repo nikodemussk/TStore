@@ -55,7 +55,17 @@ class CartController extends Controller
     }
 
     public function destroy($id){
-        \App\Cart::findOrFail($id)->delete();
+        $data = \App\Cart::findOrFail($id)->delete();
+        dd($data);
+        return redirect(route("cart"));
+    }
+
+    public function checkout(){
+        $carts = auth()->user()->cart()->get();
+        foreach ($carts as $cart) {
+            \App\Http\Controllers\TransactionController::store($cart);
+            $cart->delete();
+        }
         return redirect(route("cart"));
     }
 }

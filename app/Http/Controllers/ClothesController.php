@@ -37,7 +37,7 @@ class ClothesController extends Controller
             return redirect(route("store.create"));
         } else {
             $categories = \App\Category::all();
-            return view('home', compact('categories'));
+            return view('clothes.create', compact('categories'));
         }
     }
 

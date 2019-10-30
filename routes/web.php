@@ -44,6 +44,10 @@ Route::delete('/store/{id}', 'StoreController@destroy')->name('store.destroy');
 
 
 Route::get('/cart', 'CartController@index')->name('cart');
+Route::delete('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
 Route::post('/cart/{id}', 'CartController@store')->name('cart.store');
 Route::patch('/cart/{id}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
+
+Route::get('/transaction', 'TransactionController@index')->name('transaction.index');
+Route::post('/transaction', 'TransactionController@store')->name('transaction.store');

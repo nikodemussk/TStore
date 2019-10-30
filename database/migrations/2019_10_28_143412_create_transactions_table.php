@@ -18,10 +18,10 @@ class CreateTransactionsTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('quantity');
-            $table->unsignedBigInteger('clothes_id')->unsigned()->index();
+            $table->unsignedBigInteger('clothes_id');
 
-            $table->foreign('clothes_id')->references('id')->on('clothes')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('clothes_id')->references('id')->on('clothes');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

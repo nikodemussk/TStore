@@ -41,4 +41,9 @@
 
     @endforeach
 
+    <form action="{{ route('cart.checkout') }}" method="post">
+        @method('delete')
+        @csrf
+        <input class="btn btn-default" type="submit" value="Checkout" />
+    </form>
 @endsection
