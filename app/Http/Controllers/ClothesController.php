@@ -29,6 +29,9 @@ class ClothesController extends Controller
     public function edit($id){
         $categories = \App\Category::all();
         $clothes = \App\Clothes::findOrFail($id);
+        if (auth()->user()->id != $clothes->store()->first()->user()->first()->id){
+            return abort(403);
+        }
         return view('clothes.edit',compact('categories'),compact('clothes'));
     }
 
