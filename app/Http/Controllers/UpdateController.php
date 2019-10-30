@@ -26,12 +26,12 @@ class UpdateController extends Controller
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255', 'regex:/[a-z]+$/i','min:5'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($id)],
-            'password' => ['string', 'min:5', 'confirmed','alpha_num','nullable'],
+            'password' => ['string', 'min:5', 'confirmed','alpha_num','nullable','regex:/^[a-zA-Z0-9]*([a-zA-Z][0-9]|[0-9][a-zA-Z])[a-zA-Z0-9]*$/'],
             'old-password' => ['required','min:10','alpha_num', new MatchOldPassword],
             'gender' => ['required'],
             'role' => ['required'],
+            "image" => ['mimes:png,jpeg,jpg','nullable','image'],
             'address' => ['required','min:10'],
-            "image" => ['mimes:jpeg,jpg,png','nullable','image']
         ]);
 
         if (request('image')) {
