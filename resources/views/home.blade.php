@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">
@@ -25,10 +26,15 @@
 <p>Our Clothes Categories:</p>
 
 @foreach ($categories as $category)
-<a href="{{ route('category.show',$category->id) }}">
-<p>{{ $category->name }}</p>
-<img src="/storage/{{ $category->image }}">
-</a>
+<div class="row container category-container">
+    <div class="col">
+        <a href="{{ route('category.show',$category->id) }}">
+            <p class="btn btn-secondary">{{ $category->name }}</p>
+            <img src="/storage/{{ $category->image }}">
+        </a>
+</div>
+</div>
+
 @endforeach
 
 

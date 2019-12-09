@@ -3,12 +3,12 @@
 @section('content')
 <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data">
     @csrf
-
+<div class="container-fluid ml-4">
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+    <label for="name" class="col-md-1 col-form-label text-md-left">{{ __('Name') }}</label>
 
-    <div class="col-md-6">
-        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <div class="col-md-3">
+        <input id="name" placeholder="Category Name" type="text" class="form-control-new @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
         @error('name')
             <span class="invalid-feedback" role="alert">
@@ -19,10 +19,10 @@
 </div>
 
 <div class="form-group row">
-    <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+    <label for="image" class="col-md-1 col-form-label text-md-left">{{ __('Image') }}</label>
 
     <div class="col-md-6">
-        <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" autocomplete="image" autofocus>
+        <input id="image" type="file" class="form-control-new @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" autocomplete="image" autofocus>
 
         @error('image')
             <span class="invalid-feedback" role="alert">
@@ -32,12 +32,13 @@
     </div>
 </div>
 
-<div class="form-group row mb-0">
-    <div class="col-md-6 offset-md-4">
-        <button type="submit" class="btn btn-primary">
+<div class="">
+    <div class="pr-6">
+        <button type="submit" class="btn-new btn-primary-2">
             {{ __('Add Category') }}
         </button>
     </div>
+</div>
 </div>
 </form>
 
