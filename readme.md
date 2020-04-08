@@ -37,7 +37,7 @@ php artisan key:generate
 Please refer to https://laravel.com/docs/5.8/installation for requirement
 
 ## Notes
-Created with Laravel 5.8
+Created with Laravel 5.8<br>
 Tested with MySQL
 
 ## Browsers support
