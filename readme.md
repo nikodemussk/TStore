@@ -1,5 +1,5 @@
-# TStore
-## 
+# TStore 
+Created for COMP6144 assignment
 
 ## Installation
 >This application requires PHP 7+ and Laravel 5.8
